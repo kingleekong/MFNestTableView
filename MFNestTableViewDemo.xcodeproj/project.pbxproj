@@ -51,6 +51,7 @@
 		E8E625C320773712004FDF78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8E625C520773712004FDF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8E625C620773712004FDF78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCC347CF22904F41006A6215 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = ../../RevealServer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +115,7 @@
 				E832F0F620960ED600C56855 /* MFTransparentNavigationBar */,
 				E8E625B620773712004FDF78 /* MFNestTableViewDemo */,
 				E8E625B520773712004FDF78 /* Products */,
+				FCC347CE22904F40006A6215 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +152,14 @@
 				E837389620956D4800DA212F /* MFAllowGestureEventPassTableView.m */,
 			);
 			path = MFNestTableView;
+			sourceTree = "<group>";
+		};
+		FCC347CE22904F40006A6215 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCC347CF22904F41006A6215 /* RevealServer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,11 +379,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7P79J85545;
+				DEVELOPMENT_TEAM = ML9NWM8SSX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MFNestTableViewDemo",
+				);
 				INFOPLIST_FILE = MFNestTableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyman.MFNestTableViewDemo;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kong.MFNestTableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -384,11 +399,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7P79J85545;
+				DEVELOPMENT_TEAM = ML9NWM8SSX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MFNestTableViewDemo",
+				);
 				INFOPLIST_FILE = MFNestTableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyman.MFNestTableViewDemo;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kong.MFNestTableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

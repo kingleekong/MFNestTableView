@@ -21,6 +21,8 @@
 @property (nonatomic, strong) MFPageView *contentView;
 @property (nonatomic, strong) UIView *footerView;
 
+@property (nonatomic) UIScrollView *blogScrollView;
+
 @property (nonatomic, strong) NSMutableArray <NSArray *> *dataSource;
 @property (nonatomic, strong) NSMutableArray <UIView *> *viewList;
 
@@ -81,6 +83,7 @@
     webview.backgroundColor = [UIColor whiteColor];
     [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.lymanli.com/"]]];
     webview.scrollView.delegate = self;  // 主要是为了在 scrollViewDidScroll: 中处理是否可以滚动
+    _blogScrollView = webview.scrollView;
     [_viewList addObject:webview];
 }
 
@@ -111,14 +114,21 @@
     // 并将header的subview向上偏移，遮挡navigationBar透明后的空白
     CGFloat offsetTop = [self nestTableViewContentInsetTop:_nestTableView];
     
-    UIImage *image = [UIImage imageNamed:@"img2.jpg"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = CGRectMake(0, -offsetTop, CGRectGetWidth(self.view.frame), self.view.frame.size.width * image.size.height / image.size.width);
+//    UIImage *image = [UIImage imageNamed:@"img2.jpg"];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//    imageView.frame = CGRectMake(0, -offsetTop, CGRectGetWidth(self.view.frame), self.view.frame.size.width * image.size.height / image.size.width);
+//
+//    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(imageView.frame), CGRectGetHeight(imageView.frame) - offsetTop)];
+//    [header addSubview:imageView];
     
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(imageView.frame), CGRectGetHeight(imageView.frame) - offsetTop)];
-    [header addSubview:imageView];
+    // webview
+    UIWebView *webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 300 - offsetTop)];
+    webview.backgroundColor = [UIColor whiteColor];
+    webview.scrollView.scrollEnabled = NO;
+    webview.scrollView.scrollsToTop = NO;
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.zhihu.com/question/324736734"]]];
     
-    _headerView = header;
+    _headerView = webview;
 }
 
 - (void)initSegmentView {
@@ -189,6 +199,7 @@
 - (void)onNavigationRightItemClick:(UIButton *)button {
 
     [_nestTableView setFooterViewHidden:NO];
+//    [_nestTableView scrollToContentOffset:CGPointZero];
 }
 
 #pragma mark - MFSegmentViewDelegate
@@ -213,6 +224,13 @@
 - (void)pageView:(MFPageView *)pageView didScrollToIndex:(NSUInteger)index {
     
     [_segmentView scrollToIndex:index];
+    if (index == 4) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [_nestTableView setHeaderViewHeight:500];
+        }];
+    } else {
+        [_nestTableView setHeaderViewHeight:300];
+    }
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -245,7 +263,6 @@
 
 // 3个tableView，scrollView，webView滑动时都会响应这个方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
     if (!_canContentScroll) {
         // 这里通过固定contentOffset，来实现不滚动
         scrollView.contentOffset = CGPointZero;
@@ -254,6 +271,12 @@
         // 通知容器可以开始滚动
         _nestTableView.canScroll = YES;
     }
+    if (_blogScrollView.scrollsToTop != _canContentScroll) {
+        _blogScrollView.scrollsToTop = _canContentScroll;
+        [_nestTableView turnScrollToTop:!_canContentScroll];
+    }
+    NSLog(@"_blogScrollView scrollToTop is %d", _blogScrollView.scrollsToTop);
+    
     scrollView.showsVerticalScrollIndicator = _canContentScroll;
 }
 
@@ -296,6 +319,7 @@
 - (CGFloat)nestTableViewContentInsetTop:(MFNestTableView *)nestTableView {
     
     // 因为这里navigationBar.translucent == YES，所以实现这个方法，返回下面的值
+#warning 这里判断 iPhoneX 有 BUG
     if (IS_IPHONE_X) {
         return 88;
     } else {

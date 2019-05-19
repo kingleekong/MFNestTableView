@@ -68,6 +68,7 @@ static NSString * const kMFPageViewReuseIdentifier = @"MFPageViewReuseIdentifier
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.pagingEnabled = YES;
+    _collectionView.scrollsToTop = NO;
     _collectionView.showsVerticalScrollIndicator = NO;
     _collectionView.showsHorizontalScrollIndicator = NO;
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kMFPageViewReuseIdentifier];

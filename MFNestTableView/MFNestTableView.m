@@ -23,6 +23,7 @@
     
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor redColor];
         [self commomInit];
     }
     return self;
@@ -132,6 +133,11 @@
     [self resizeContentHeight];
     
     [_tableView reloadData];
+}
+
+- (void)turnScrollToTop:(BOOL)on {
+    _tableView.scrollsToTop = on;
+    NSLog(@"current tableView scrollToTop is %d", on);
 }
 
 - (void)setHeaderViewHeight:(CGFloat)height {
@@ -253,6 +259,7 @@
     if (_contentView) {
         UIView *view = cell.contentView;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        _contentView.backgroundColor = [UIColor greenColor];
         [view addSubview:_contentView];
     }
     

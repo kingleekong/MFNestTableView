@@ -103,6 +103,7 @@ static NSString * const kMFSegmentViewReuseIdentifier = @"MFSegmentViewReuseIden
     _collectionView.dataSource = self;
     _collectionView.showsVerticalScrollIndicator = NO;
     _collectionView.showsHorizontalScrollIndicator = NO;
+    _collectionView.scrollsToTop = NO;
     [_collectionView registerClass:[MFSegmentViewCell class] forCellWithReuseIdentifier:kMFSegmentViewReuseIdentifier];
 }
 

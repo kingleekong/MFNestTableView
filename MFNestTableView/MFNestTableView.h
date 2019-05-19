@@ -76,4 +76,6 @@
 // 设置分类导航的高度，设置后会自动重新调整contentView的高度
 - (void)setSegmentViewHeight:(CGFloat)height;
 
+- (void)turnScrollToTop:(BOOL)on;
+
 @end
