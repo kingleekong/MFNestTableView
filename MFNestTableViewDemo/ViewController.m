@@ -58,7 +58,7 @@
     
     // 添加3个tableview
     for (int i = 0; i < pageDataCount.count; ++i) {
-        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -237,7 +237,29 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return 2;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *v = [UIView new];
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    l.text = [NSString stringWithFormat:@"%ld", section];
+    l.textColor = [UIColor blackColor];
+    [v addSubview:l];
+    v.backgroundColor = [UIColor redColor];
+    return v;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [UIView new];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
