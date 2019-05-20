@@ -81,7 +81,7 @@
     // 添加webview
     UIWebView *webview = [[UIWebView alloc] init];
     webview.backgroundColor = [UIColor whiteColor];
-    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.lymanli.com/"]]];
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://abcmoney.work/"]]];
     webview.scrollView.delegate = self;  // 主要是为了在 scrollViewDidScroll: 中处理是否可以滚动
     _blogScrollView = webview.scrollView;
     [_viewList addObject:webview];
@@ -168,7 +168,7 @@
     self.navigationItem.rightBarButtonItem = item;
     
     UIButton *btnNormal = [[UIButton alloc] init];
-    [btnNormal setTitle:@"显示底栏" forState:UIControlStateNormal];
+    [btnNormal setTitle:@"" forState:UIControlStateNormal];
     [btnNormal.titleLabel setFont:[UIFont systemFontOfSize:12]];
     [btnNormal.titleLabel setShadowOffset:CGSizeMake(0, 1)];
     [btnNormal setTitleShadowColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -177,7 +177,7 @@
     [btnNormal addTarget:self action:@selector(onNavigationRightItemClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btnSelected = [[UIButton alloc] init];
-    [btnSelected setTitle:@"显示底栏" forState:UIControlStateNormal];
+    [btnSelected setTitle:@"" forState:UIControlStateNormal];
     [btnSelected.titleLabel setFont:[UIFont systemFontOfSize:12]];
     [btnSelected setTitleColor:[UIColor colorWithRed:0.0 / 255 green:122.0 / 255 blue:255.0 / 255 alpha:1] forState:UIControlStateNormal];
     item.viewSelected = btnSelected;
@@ -225,9 +225,9 @@
     
     [_segmentView scrollToIndex:index];
     if (index == 4) {
-        [UIView animateWithDuration:0.3 animations:^{
-            [_nestTableView setHeaderViewHeight:500];
-        }];
+//        [UIView animateWithDuration:0.3 animations:^{
+//        }];
+        [_nestTableView setHeaderViewHeight:500];
     } else {
         [_nestTableView setHeaderViewHeight:300];
     }
