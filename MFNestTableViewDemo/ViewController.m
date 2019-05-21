@@ -141,7 +141,7 @@
     _segmentView.itemSelectColor = [UIColor colorWithRed:244.0 / 255 green:67.0 / 255 blue:54.0 / 255 alpha:1];
     _segmentView.bottomLineWidth = 60;
     _segmentView.bottomLineHeight = 2;
-    _segmentView.itemList = @[@"列表1", @"列表2", @"列表3", @"图片", @"网页"];
+    _segmentView.itemList = @[@"列表1", @"列表2", @"列表3", @"列表4", @"列表5"];
 }
 
 - (void)initContentView {
@@ -184,7 +184,7 @@
     [btnSelected addTarget:self action:@selector(onNavigationRightItemClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *titleView = [[UILabel alloc] init];
-    titleView.text = @"Steam 夏日特卖";
+    titleView.text = @"问题列表页";
     titleView.font = [UIFont boldSystemFontOfSize:14];
     [titleView sizeToFit];
     titleView.hidden = YES;
@@ -242,8 +242,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *v = [UIView new];
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    l.text = [NSString stringWithFormat:@"%ld", section];
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 200, 30)];
+    l.text = [NSString stringWithFormat:@"第 %ld Section", section];
     l.textColor = [UIColor blackColor];
     [v addSubview:l];
     v.backgroundColor = [UIColor redColor];
@@ -251,7 +251,14 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [UIView new];
+    
+    UIView *v = [UIView new];
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 200, 30)];
+    l.text = @"折叠回答 100";
+    l.textColor = [UIColor blackColor];
+    [v addSubview:l];
+    v.backgroundColor = [UIColor greenColor];
+    return v;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -259,6 +266,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 0;
+            
+        case 1:
+            return 30;
+            
+        default:
+            break;
+    }
     return 0;
 }
 
