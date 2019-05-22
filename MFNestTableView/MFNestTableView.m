@@ -8,6 +8,7 @@
 
 #import "MFNestTableView.h"
 #import "MFAllowGestureEventPassTableView.h"
+#import <Masonry/Masonry.h>
 
 @interface MFNestTableView () <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 
@@ -172,7 +173,7 @@
 
 - (void)commomInit {
     
-    MFAllowGestureEventPassTableView *tableView = [[MFAllowGestureEventPassTableView alloc] initWithFrame:self.bounds];
+    MFAllowGestureEventPassTableView *tableView = [[MFAllowGestureEventPassTableView alloc] initWithFrame:self.bounds style:UITableViewStyleGrouped];
     self.tableView = tableView;
     [self addSubview:_tableView];
     
@@ -198,7 +199,7 @@
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(nestTableViewContentInsetBottom:)]) {
         return [self.dataSource nestTableViewContentInsetBottom:self];
     }
-    
+    return 0;
     if (IS_IPHONE_X) {
         return 34;
     } else {
@@ -261,6 +262,9 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         _contentView.backgroundColor = [UIColor greenColor];
         [view addSubview:_contentView];
+        [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(view);
+        }];
     }
     
     return cell;
@@ -313,7 +317,6 @@
     } else if (scrollView.contentOffset.y >= contentOffset) {
         scrollView.contentOffset = CGPointMake(0, contentOffset);
         self.canScroll = NO;
-        
         // 通知delegate内容开始可以滚动
         if (self.delegate && [self.delegate respondsToSelector:@selector(nestTableViewContentCanScroll:)]) {
             [self.delegate nestTableViewContentCanScroll:self];
@@ -324,6 +327,8 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(nestTableViewDidScroll:)]) {
         [self.delegate nestTableViewDidScroll:_tableView];
     }
+    
+    NSLog(@"scrollContent offSet View %.1f", scrollView.contentOffset.y);
 }
 
 @end

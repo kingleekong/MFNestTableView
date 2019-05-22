@@ -9,6 +9,7 @@
 #import "MFSegmentViewCell.h"
 
 #import "MFSegmentView.h"
+#import <Masonry/Masonry.h>
 
 static NSString * const kMFSegmentViewReuseIdentifier = @"MFSegmentViewReuseIdentifier";
 

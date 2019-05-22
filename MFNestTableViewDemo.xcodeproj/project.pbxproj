@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701971CAF52844D005D0670D /* libPods-MFNestTableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF63DD31FFC7E6050BBEACC /* libPods-MFNestTableViewDemo.a */; };
 		E832F0F02095DF8300C56855 /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E832F0EF2095DF8300C56855 /* img1.jpg */; };
 		E832F0F22095E28B00C56855 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E832F0F12095E28B00C56855 /* img2.jpg */; };
 		E832F0F920960F0900C56855 /* MFTransparentNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E832F0F820960F0900C56855 /* MFTransparentNavigationBar.m */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7AF63DD31FFC7E6050BBEACC /* libPods-MFNestTableViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MFNestTableViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B247578A586799846C454797 /* Pods-MFNestTableViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFNestTableViewDemo.debug.xcconfig"; path = "Target Support Files/Pods-MFNestTableViewDemo/Pods-MFNestTableViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E832F0EF2095DF8300C56855 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
 		E832F0F12095E28B00C56855 /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
 		E832F0F720960F0900C56855 /* MFTransparentNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFTransparentNavigationBar.h; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		E8E625C320773712004FDF78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8E625C520773712004FDF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8E625C620773712004FDF78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F24BBA9BCCCA2C6F8848CCA2 /* Pods-MFNestTableViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFNestTableViewDemo.release.xcconfig"; path = "Target Support Files/Pods-MFNestTableViewDemo/Pods-MFNestTableViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FCC347CF22904F41006A6215 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = ../../RevealServer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,12 +63,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				701971CAF52844D005D0670D /* libPods-MFNestTableViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B7A54AF68FBE2F2AD02217D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B247578A586799846C454797 /* Pods-MFNestTableViewDemo.debug.xcconfig */,
+				F24BBA9BCCCA2C6F8848CCA2 /* Pods-MFNestTableViewDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E832F0EE2095DF8300C56855 /* image */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +130,7 @@
 				E8E625B620773712004FDF78 /* MFNestTableViewDemo */,
 				E8E625B520773712004FDF78 /* Products */,
 				FCC347CE22904F40006A6215 /* Frameworks */,
+				9B7A54AF68FBE2F2AD02217D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				FCC347CF22904F41006A6215 /* RevealServer.framework */,
+				7AF63DD31FFC7E6050BBEACC /* libPods-MFNestTableViewDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,6 +185,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8E625CA20773712004FDF78 /* Build configuration list for PBXNativeTarget "MFNestTableViewDemo" */;
 			buildPhases = (
+				710FFD2590601A10120F50C8 /* [CP] Check Pods Manifest.lock */,
 				E8E625B020773712004FDF78 /* Sources */,
 				E8E625B120773712004FDF78 /* Frameworks */,
 				E8E625B220773712004FDF78 /* Resources */,
@@ -229,6 +246,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		710FFD2590601A10120F50C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MFNestTableViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E8E625B020773712004FDF78 /* Sources */ = {
@@ -376,6 +418,7 @@
 		};
 		E8E625CB20773712004FDF78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B247578A586799846C454797 /* Pods-MFNestTableViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -387,7 +430,7 @@
 				INFOPLIST_FILE = MFNestTableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kong.MFNestTableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -396,6 +439,7 @@
 		};
 		E8E625CC20773712004FDF78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F24BBA9BCCCA2C6F8848CCA2 /* Pods-MFNestTableViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -407,7 +451,7 @@
 				INFOPLIST_FILE = MFNestTableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kong.MFNestTableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

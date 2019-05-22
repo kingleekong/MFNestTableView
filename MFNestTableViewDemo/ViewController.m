@@ -12,6 +12,7 @@
 #import "MFTransparentNavigationBar.h"
 
 #import "ViewController.h"
+#import <Masonry/Masonry.h>
 
 @interface ViewController () <MFNestTableViewDelegate, MFNestTableViewDataSource, MFPageViewDataSource, MFPageViewDelegate, MFSegmentViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -63,6 +64,7 @@
         tableView.dataSource = self;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.tag = i;
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 34, 0);
         [_viewList addObject:tableView];
     }
     
@@ -106,6 +108,9 @@
     _nestTableView.dataSource = self;
     
     [self.view addSubview:_nestTableView];
+    [_nestTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (void)initHeaderView {
@@ -145,8 +150,9 @@
 }
 
 - (void)initContentView {
-    
-    _contentView = [[MFPageView alloc] initWithFrame:self.view.bounds];
+    CGRect frame = self.view.bounds;
+    frame.size.height = CGRectGetHeight(frame) - 34;
+    _contentView = [[MFPageView alloc] initWithFrame:frame];
     _contentView.delegate = self;
     _contentView.dataSource = self;
 }
@@ -189,6 +195,11 @@
     [titleView sizeToFit];
     titleView.hidden = YES;
     self.navigationItem.titleView = titleView;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [_nestTableView setFooterViewHidden:YES];
 }
 
 - (void)onBtnBottomClick:(UIButton *)button {
@@ -315,7 +326,7 @@
         [_nestTableView turnScrollToTop:!_canContentScroll];
     }
     NSLog(@"_blogScrollView scrollToTop is %d", _blogScrollView.scrollsToTop);
-    
+    NSLog(@"scrollContent offSet VC %.1f", scrollView.contentOffset.y);
     scrollView.showsVerticalScrollIndicator = _canContentScroll;
 }
 
@@ -329,17 +340,17 @@
 - (void)nestTableViewContainerCanScroll:(MFNestTableView *)nestTableView {
  
     // 当容器开始可以滚动时，将所有内容设置回到顶部
-    for (id view in self.viewList) {
-        UIScrollView *scrollView;
-        if ([view isKindOfClass:[UIScrollView class]]) {
-            scrollView = view;
-        } else if ([view isKindOfClass:[UIWebView class]]) {
-            scrollView = ((UIWebView *)view).scrollView;
-        }
-        if (scrollView) {
-            scrollView.contentOffset = CGPointZero;
-        }
-    }
+//    for (id view in self.viewList) {
+//        UIScrollView *scrollView;
+//        if ([view isKindOfClass:[UIScrollView class]]) {
+//            scrollView = view;
+//        } else if ([view isKindOfClass:[UIWebView class]]) {
+//            scrollView = ((UIWebView *)view).scrollView;
+//        }
+//        if (scrollView) {
+//            scrollView.contentOffset = CGPointZero;
+//        }
+//    }
 }
 
 - (void)nestTableViewDidScroll:(UIScrollView *)scrollView {
