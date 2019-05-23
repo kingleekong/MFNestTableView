@@ -13,6 +13,8 @@
 
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
+#import "Test1ViewController.h"
+#import "Test2ViewController.h"
 
 @interface ViewController () <MFNestTableViewDelegate, MFNestTableViewDataSource, MFPageViewDataSource, MFPageViewDelegate, MFSegmentViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -67,6 +69,20 @@
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 34, 0);
         [_viewList addObject:tableView];
     }
+    
+    Test1ViewController *vc1 = [Test1ViewController new];
+    Test2ViewController *vc2 = [Test2ViewController new];
+    [self addChildViewController:vc1];
+    [self addChildViewController:vc2];
+    vc1.view.frame = self.view.bounds;
+    vc2.view.frame = self.view.bounds;
+    [_viewList addObject:vc1.view];
+    [_viewList addObject:vc2.view];
+    [vc1 didMoveToParentViewController:self];
+    [vc2 didMoveToParentViewController:self];
+    
+    return;
+
     
     // 添加ScrollView
     UIScrollView *scrollView = [[UIScrollView alloc] init];

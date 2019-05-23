@@ -23,6 +23,10 @@
 		E8E625C120773712004FDF78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8E625C020773712004FDF78 /* Assets.xcassets */; };
 		E8E625C420773712004FDF78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E625C220773712004FDF78 /* LaunchScreen.storyboard */; };
 		E8E625C720773712004FDF78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E625C620773712004FDF78 /* main.m */; };
+		FC5FAB7F2296D630005DCDAC /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5FAB7D2296D630005DCDAC /* Test1ViewController.m */; };
+		FC5FAB802296D630005DCDAC /* Test1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5FAB7E2296D630005DCDAC /* Test1ViewController.xib */; };
+		FC5FAB842296D63F005DCDAC /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5FAB822296D63F005DCDAC /* Test2ViewController.m */; };
+		FC5FAB852296D63F005DCDAC /* Test2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5FAB832296D63F005DCDAC /* Test2ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,12 @@
 		E8E625C520773712004FDF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8E625C620773712004FDF78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F24BBA9BCCCA2C6F8848CCA2 /* Pods-MFNestTableViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFNestTableViewDemo.release.xcconfig"; path = "Target Support Files/Pods-MFNestTableViewDemo/Pods-MFNestTableViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FC5FAB7C2296D630005DCDAC /* Test1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
+		FC5FAB7D2296D630005DCDAC /* Test1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		FC5FAB7E2296D630005DCDAC /* Test1ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test1ViewController.xib; sourceTree = "<group>"; };
+		FC5FAB812296D63F005DCDAC /* Test2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
+		FC5FAB822296D63F005DCDAC /* Test2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
+		FC5FAB832296D63F005DCDAC /* Test2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test2ViewController.xib; sourceTree = "<group>"; };
 		FCC347CF22904F41006A6215 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = ../../RevealServer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +159,12 @@
 				E8E625B820773712004FDF78 /* AppDelegate.m */,
 				E8E625BA20773712004FDF78 /* ViewController.h */,
 				E8E625BB20773712004FDF78 /* ViewController.m */,
+				FC5FAB812296D63F005DCDAC /* Test2ViewController.h */,
+				FC5FAB822296D63F005DCDAC /* Test2ViewController.m */,
+				FC5FAB832296D63F005DCDAC /* Test2ViewController.xib */,
+				FC5FAB7C2296D630005DCDAC /* Test1ViewController.h */,
+				FC5FAB7D2296D630005DCDAC /* Test1ViewController.m */,
+				FC5FAB7E2296D630005DCDAC /* Test1ViewController.xib */,
 				E8E625BD20773712004FDF78 /* Main.storyboard */,
 				E8E625C020773712004FDF78 /* Assets.xcassets */,
 				E8E625C220773712004FDF78 /* LaunchScreen.storyboard */,
@@ -238,7 +254,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8E625C420773712004FDF78 /* LaunchScreen.storyboard in Resources */,
+				FC5FAB852296D63F005DCDAC /* Test2ViewController.xib in Resources */,
 				E832F0F22095E28B00C56855 /* img2.jpg in Resources */,
+				FC5FAB802296D630005DCDAC /* Test1ViewController.xib in Resources */,
 				E832F0F02095DF8300C56855 /* img1.jpg in Resources */,
 				E8E625C120773712004FDF78 /* Assets.xcassets in Resources */,
 				E8E625BF20773712004FDF78 /* Main.storyboard in Resources */,
@@ -280,11 +298,13 @@
 				E8E625BC20773712004FDF78 /* ViewController.m in Sources */,
 				E8E625C720773712004FDF78 /* main.m in Sources */,
 				E837389F2095866C00DA212F /* MFSegmentView.m in Sources */,
+				FC5FAB7F2296D630005DCDAC /* Test1ViewController.m in Sources */,
 				E837389720956D4800DA212F /* MFAllowGestureEventPassTableView.m in Sources */,
 				E837388620956B8300DA212F /* MFNestTableView.m in Sources */,
 				E832F0F920960F0900C56855 /* MFTransparentNavigationBar.m in Sources */,
 				E837389C2095863100DA212F /* MFPageView.m in Sources */,
 				E8E625B920773712004FDF78 /* AppDelegate.m in Sources */,
+				FC5FAB842296D63F005DCDAC /* Test2ViewController.m in Sources */,
 				E83738A52095CEAC00DA212F /* MFSegmentViewCell.m in Sources */,
 				E85C5B992096400100E0B50D /* MFTransparentBarButtonItem.m in Sources */,
 			);
