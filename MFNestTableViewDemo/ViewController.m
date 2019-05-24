@@ -71,15 +71,11 @@
     }
     
     Test1ViewController *vc1 = [Test1ViewController new];
-    Test2ViewController *vc2 = [Test2ViewController new];
     [self addChildViewController:vc1];
-    [self addChildViewController:vc2];
     vc1.view.frame = self.view.bounds;
-    vc2.view.frame = self.view.bounds;
     [_viewList addObject:vc1.view];
-    [_viewList addObject:vc2.view];
     [vc1 didMoveToParentViewController:self];
-    [vc2 didMoveToParentViewController:self];
+    
     
     return;
 
@@ -240,10 +236,30 @@
 
 - (NSUInteger)numberOfPagesInPageView:(MFPageView *)pageView {
     
-    return [_viewList count];
+    return _viewList.count;
 }
 
 - (UIView *)pageView:(MFPageView *)pageView pageAtIndex:(NSUInteger)index {
+    
+    switch (index) {
+        case 3: {
+            
+
+        }
+            break;
+        case 4: {
+            Test2ViewController *vc2 = [Test2ViewController new];
+            [self addChildViewController:vc2];
+            vc2.view.frame = self.view.bounds;
+            [_viewList removeLastObject];
+            [_viewList addObject:vc2.view];
+            [vc2 didMoveToParentViewController:self];
+        }
+        default:
+            break;
+    }
+    
+    
     
     return _viewList[index];
 }
@@ -251,6 +267,10 @@
 - (void)pageView:(MFPageView *)pageView didScrollToIndex:(NSUInteger)index {
     
     [_segmentView scrollToIndex:index];
+    if (index == 3) {
+        [_viewList addObject:[UIView new]];
+        [pageView reload];
+    }
     if (index == 4) {
 //        [UIView animateWithDuration:0.3 animations:^{
 //        }];

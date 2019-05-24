@@ -55,6 +55,11 @@ static NSString * const kMFPageViewReuseIdentifier = @"MFPageViewReuseIdentifier
     [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
+- (void)reload {
+    [[_collectionView collectionViewLayout] invalidateLayout];
+    [_collectionView reloadData];
+}
+
 #pragma mark - private methods
 
 - (void)commonInit {
@@ -70,6 +75,11 @@ static NSString * const kMFPageViewReuseIdentifier = @"MFPageViewReuseIdentifier
     _collectionView.pagingEnabled = YES;
     _collectionView.showsVerticalScrollIndicator = NO;
     _collectionView.showsHorizontalScrollIndicator = NO;
+    if (@available(iOS 10.0, *)) {
+        _collectionView.prefetchingEnabled = NO;
+    } else {
+        // Fallback on earlier versions
+    }
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kMFPageViewReuseIdentifier];
 }
 
@@ -86,7 +96,7 @@ static NSString * const kMFPageViewReuseIdentifier = @"MFPageViewReuseIdentifier
     CGFloat itemH = CGRectGetHeight(self.frame);
     flowLayout.itemSize = CGSizeMake(itemW, itemH);
     
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    flowLayout.sectionInset = UIEdgeInsetsZero;
     
     // 设置水平滚动方向
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;

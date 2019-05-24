@@ -28,6 +28,7 @@
 @property (nonatomic, weak) id<MFPageViewDataSource> dataSource;
 @property (nonatomic, weak) id<MFPageViewDelegate> delegate;
 
+- (void)reload;
 - (void)scrollToIndex:(NSUInteger)index;
 
 @end
